@@ -1,0 +1,234 @@
+/* MonthlyStatement.css */
+.monthly-statement {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.monthly-statement.empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.monthly-statement h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+}
+
+.month-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding: 15px;
+  background: white;
+  border-radius: 6px;
+}
+
+.month-selector h3 {
+  margin: 0;
+  min-width: 200px;
+  text-align: center;
+  color: #333;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+
+.btn-nav {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-nav:hover {
+  background: #0056b3;
+}
+
+/* Resumen Global */
+.summary-global,
+.summary-period {
+  margin-bottom: 30px;
+}
+
+.summary-global h3,
+.summary-period h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #007bff;
+}
+
+.summary-card.deposits {
+  border-left-color: #28a745;
+}
+
+.summary-card.withdrawals {
+  border-left-color: #dc3545;
+}
+
+.summary-card.commissions {
+  border-left-color: #ff9800;
+}
+
+.summary-card.interests {
+  border-left-color: #2196f3;
+}
+
+.summary-card .label {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0 0 10px 0;
+}
+
+.summary-card .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.summary-card.deposits .value {
+  color: #28a745;
+}
+
+.summary-card.withdrawals .value {
+  color: #dc3545;
+}
+
+.summary-card.commissions .value {
+  color: #ff9800;
+}
+
+.summary-card.interests .value {
+  color: #2196f3;
+}
+
+.summary-card .value.highlight {
+  color: #667eea;
+}
+
+/* Detalle de Transacciones */
+.transactions-detail {
+  margin-bottom: 25px;
+}
+
+.transactions-detail h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.no-transactions {
+  background: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.transactions-table {
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 120px 120px 100px 1fr;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.table-header {
+  background: #e9ecef;
+  font-weight: 600;
+  color: #333;
+}
+
+.table-row {
+  align-items: center;
+}
+
+.table-row:hover {
+  background: #f8f9fa;
+}
+
+.table-row.deposit {
+  border-left: 3px solid #28a745;
+}
+
+.table-row.withdrawal {
+  border-left: 3px solid #dc3545;
+}
+
+.table-row.commission {
+  border-left: 3px solid #ff9800;
+}
+
+.table-row.interest {
+  border-left: 3px solid #2196f3;
+}
+
+/* Resumen Final */
+.final-summary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 6px;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.summary-item:last-child {
+  margin-bottom: 0;
+}
+
+.summary-item strong {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.summary-item.highlight {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.net-movement {
+  display: inline-block;
+  font-size: 1.3rem !important;
+}

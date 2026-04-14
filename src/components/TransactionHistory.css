@@ -1,0 +1,78 @@
+/* TransactionHistory.css */
+.transaction-history {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.transaction-history.empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.transaction-history h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.transactions-table {
+  margin-top: 15px;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 120px 150px 100px 120px 1fr;
+  gap: 10px;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.table-header {
+  background: #e9ecef;
+  font-weight: 600;
+  color: #333;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.table-row {
+  background: white;
+}
+
+.table-row:hover {
+  background: #f0f0f0;
+}
+
+.table-row.deposit .col-type {
+  color: #28a745;
+}
+
+.table-row.withdrawal .col-type {
+  color: #dc3545;
+}
+
+.table-row.commission .col-type {
+  color: #ff9800;
+}
+
+.table-row.interest .col-type {
+  color: #2196f3;
+}
+
+.col-amount {
+  font-weight: 600;
+  text-align: right;
+}
+
+.col-type {
+  font-weight: 500;
+}

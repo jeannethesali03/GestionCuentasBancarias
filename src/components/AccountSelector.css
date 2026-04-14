@@ -1,0 +1,71 @@
+/* AccountSelector.css */
+.account-selector {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.account-selector h3 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.no-accounts {
+  color: #999;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.selector-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.selector-btn {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.selector-btn:hover {
+  border-color: #007bff;
+  background: #f0f8ff;
+}
+
+.selector-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.btn-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-content strong {
+  flex: 1;
+}
+
+.btn-balance {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.selector-btn.active .btn-balance {
+  background: rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,56 @@
+/* InterestCalculator.css */
+.interest-calculator {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.interest-calculator h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.interest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.interest-preview {
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.interest-preview h4 {
+  margin: 0 0 10px 0;
+  color: #2e7d32;
+}
+
+.interest-preview p {
+  margin: 5px 0;
+  color: #1b5e20;
+  font-size: 0.95rem;
+}
+
+.interest-result {
+  font-size: 1.1rem !important;
+  font-weight: 600;
+}
+
+.new-balance {
+  background: white;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 10px !important;
+}

@@ -1,0 +1,101 @@
+/* WithdrawPanel.css */
+.withdraw-panel {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.withdraw-panel h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.withdraw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.daily-limit-info {
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.daily-limit-info h4 {
+  margin: 0 0 10px 0;
+  color: #92400e;
+}
+
+.limit-bar {
+  background: #e5e7eb;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.limit-used {
+  background: #f59e0b;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.daily-limit-info p {
+  margin: 5px 0;
+  color: #78350f;
+  font-size: 0.95rem;
+}
+
+.daily-withdrawals {
+  background: #ede9fe;
+  border: 1px solid #ddd6fe;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.daily-withdrawals h4 {
+  margin: 0 0 10px 0;
+  color: #5b21b6;
+}
+
+.daily-withdrawals ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.daily-withdrawals li {
+  padding: 8px;
+  background: white;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commission-badge {
+  background: #fca5a5;
+  color: #7f1d1d;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.commission-info {
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  color: #5b21b6;
+  font-size: 0.9rem;
+}
