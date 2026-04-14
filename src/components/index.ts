@@ -1,5 +1,6 @@
 export { AccountForm } from './AccountForm';
 export { AccountSelector } from './AccountSelector';
+export { AccountSelectorModal } from './AccountSelectorModal';
 export { BalanceDisplay } from './BalanceDisplay';
 export { DepositPanel } from './DepositPanel';
 export { WithdrawPanel } from './WithdrawPanel';

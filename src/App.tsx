@@ -1,7 +1,7 @@
 import { BankProvider } from './context/BankContext';
 import {
   AccountForm,
-  AccountSelector,
+  AccountSelectorModal,
   BalanceDisplay,
   DepositPanel,
   WithdrawPanel,
@@ -20,13 +20,14 @@ function AppContent() {
         <p className="subtitle">Administra tus cuentas, transacciones e intereses</p>
       </header>
 
+      {/* Selector de Cuentas Modal */}
+      <AccountSelectorModal />
+
       {/* Sección Principal */}
       <div className="main-content">
         {/* Columna Izquierda - Gestión de Cuentas */}
         <aside className="sidebar">
           <AccountForm />
-          <hr />
-          <AccountSelector />
           <hr />
           <BalanceDisplay />
         </aside>

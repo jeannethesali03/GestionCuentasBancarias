@@ -3,7 +3,7 @@ import { useBankContext } from '../hooks';
 import './AccountForm.css';
 
 export const AccountForm = () => {
-  const { createAccount, accounts } = useBankContext();
+  const { createAccount } = useBankContext();
   const [formData, setFormData] = useState({ name: '', initialBalance: '' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -76,22 +76,6 @@ export const AccountForm = () => {
       {error && <div className="error-message">{error}</div>}
       {success && <div className="success-message">{success}</div>}
 
-      {accounts.length > 0 && (
-        <div className="accounts-list">
-          <h3>Cuentas Registradas ({accounts.length})</h3>
-          <div className="accounts-grid">
-            {accounts.map((account) => (
-              <div key={account.id} className="account-card">
-                <h4>{account.name}</h4>
-                <p className="account-info">ID: {account.id.substring(0, 8)}...</p>
-                <p className="account-balance">
-                  Saldo: <strong>${account.currentBalance.toFixed(2)}</strong>
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };
