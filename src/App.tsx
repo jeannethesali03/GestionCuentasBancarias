@@ -8,6 +8,8 @@ import {
   InterestCalculator,
   TransactionHistory,
   MonthlyStatement,
+  DataManager,
+  FloatingButton,
 } from './components';
 import './App.css';
 
@@ -20,6 +22,9 @@ function AppContent() {
         <p className="subtitle">Administra tus cuentas, transacciones e intereses</p>
       </header>
 
+      {/* Botón Flotante */}
+      <FloatingButton />
+
       {/* Selector de Cuentas Modal */}
       <AccountSelectorModal />
 
@@ -30,6 +35,7 @@ function AppContent() {
           <AccountForm />
           <hr />
           <BalanceDisplay />
+          <DataManager />
         </aside>
 
         {/* Columna Derecha - Operaciones y Estados */}

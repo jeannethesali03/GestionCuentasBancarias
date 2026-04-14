@@ -4,9 +4,12 @@ import './AccountForm.css';
 
 export const AccountForm = () => {
   const { createAccount } = useBankContext();
-  const [formData, setFormData] = useState({ name: '', initialBalance: '' });
+  const [formData, setFormData] = useState({ name: '', initialBalance: '', justification: 'Depósito inicial' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+
+  const balance = formData.initialBalance ? parseFloat(formData.initialBalance) : 0;
+  const requiresJustification = balance >= 1000;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,20 +21,25 @@ export const AccountForm = () => {
       return;
     }
 
-    const balance = parseFloat(formData.initialBalance);
-    if (isNaN(balance) || balance < 0) {
+    const balanceNum = parseFloat(formData.initialBalance);
+    if (isNaN(balanceNum) || balanceNum < 0) {
       setError('El saldo inicial debe ser un número positivo');
       return;
     }
 
-    if (balance === 0) {
+    if (balanceNum === 0) {
       setError('El saldo inicial debe ser mayor a 0');
       return;
     }
 
+    if (requiresJustification && !formData.justification.trim()) {
+      setError('La justificación es requerida para depósitos >= $1,000');
+      return;
+    }
+
     try {
-      createAccount(formData.name.trim(), balance);
-      setFormData({ name: '', initialBalance: '' });
+      createAccount(formData.name.trim(), balanceNum, requiresJustification ? formData.justification : undefined);
+      setFormData({ name: '', initialBalance: '', justification: 'Depósito inicial' });
       setSuccess(`Cuenta creada exitosamente para ${formData.name}`);
       setTimeout(() => setSuccess(''), 3000);
     } catch (err) {
@@ -67,6 +75,22 @@ export const AccountForm = () => {
             onChange={(e) => setFormData({ ...formData, initialBalance: e.target.value })}
           />
         </div>
+
+        {requiresJustification && (
+          <div className="form-group justification-field">
+            <label htmlFor="justification">
+              📝 Justificación (Depósito ≥ $1,000)
+            </label>
+            <input
+              id="justification"
+              type="text"
+              placeholder="Ej: Ahorro mensual, pago de servicios..."
+              value={formData.justification}
+              onChange={(e) => setFormData({ ...formData, justification: e.target.value })}
+            />
+            <small>Valor por defecto: "Depósito inicial"</small>
+          </div>
+        )}
 
         <button type="submit" className="btn-primary">
           Crear Cuenta

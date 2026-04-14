@@ -1,0 +1,94 @@
+/* FloatingButton.css */
+.floating-btn {
+  position: fixed;
+  z-index: 1000;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  animation: slideInUp 0.4s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-btn.scroll-down {
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  animation: slideInUp 0.4s ease-out;
+}
+
+.floating-btn.scroll-down:hover {
+  background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
+}
+
+.floating-btn.scroll-down:active {
+  transform: translateY(-1px);
+}
+
+.floating-btn.scroll-up {
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  animation: slideInDown 0.4s ease-out;
+}
+
+.floating-btn.scroll-up:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #6a3b8b 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.floating-btn.scroll-up:active {
+  transform: translateY(-1px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .floating-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .floating-btn.scroll-up {
+    width: 45px;
+    height: 45px;
+  }
+}

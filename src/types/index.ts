@@ -23,13 +23,16 @@ export interface BankContextType {
   accounts: Account[];
   transactions: Transaction[];
   selectedAccountId: string | null;
-  createAccount: (name: string, initialBalance: number) => void;
+  createAccount: (name: string, initialBalance: number, justification?: string) => void;
   selectAccount: (accountId: string) => void;
   deposit: (accountId: string, amount: number, justification?: string) => void;
   withdraw: (accountId: string, amount: number) => void;
   addInterest: (accountId: string, rate: number, monthsCount: number) => void;
   getTransactionsByMonth: (accountId: string, year: number, month: number) => Transaction[];
+  getTransactionsByDateRange: (accountId: string, startDate: string, endDate: string) => Transaction[];
   getMonthlyStatement: (accountId: string, year: number, month: number) => MonthlyStatement;
+  deleteAccount: (accountId: string) => void;
+  clearAllData: () => void;
 }
 
 export interface MonthlyStatement {

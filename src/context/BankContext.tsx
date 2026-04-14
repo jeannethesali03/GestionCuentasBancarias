@@ -47,7 +47,7 @@ export const BankProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  const createAccount = useCallback((name: string, initialBalance: number) => {
+  const createAccount = useCallback((name: string, initialBalance: number, justification?: string) => {
     const validation = validateAmount(initialBalance);
     if (!validation.valid) {
       throw new Error(validation.error);
@@ -211,6 +211,20 @@ export const BankProvider = ({ children }: { children: React.ReactNode }) => {
     [state.transactions]
   );
 
+  const getTransactionsByDateRange = useCallback(
+    (accountId: string, startDate: string, endDate: string): Transaction[] => {
+      const start = new Date(startDate).getTime();
+      const end = new Date(endDate).getTime();
+
+      return state.transactions.filter((t) => {
+        if (t.accountId !== accountId) return false;
+        const txDate = new Date(t.date).getTime();
+        return txDate >= start && txDate <= end;
+      });
+    },
+    [state.transactions]
+  );
+
   const getMonthlyStatement = useCallback(
     (accountId: string, year: number, month: number): MonthlyStatement => {
       const transactions = getTransactionsByMonth(accountId, year, month);
@@ -261,6 +275,33 @@ export const BankProvider = ({ children }: { children: React.ReactNode }) => {
     [state.accounts, state.transactions, getTransactionsByMonth]
   );
 
+  const deleteAccount = useCallback((accountId: string) => {
+    setState((prev) => {
+      const updatedAccounts = prev.accounts.filter((a) => a.id !== accountId);
+      const updatedTransactions = prev.transactions.filter((t) => t.accountId !== accountId);
+      const newSelectedId =
+        prev.selectedAccountId === accountId
+          ? updatedAccounts.length > 0
+            ? updatedAccounts[0].id
+            : null
+          : prev.selectedAccountId;
+
+      return {
+        accounts: updatedAccounts,
+        transactions: updatedTransactions,
+        selectedAccountId: newSelectedId,
+      };
+    });
+  }, []);
+
+  const clearAllData = useCallback(() => {
+    setState({
+      accounts: [],
+      transactions: [],
+      selectedAccountId: null,
+    });
+  }, []);
+
   const value: BankContextType = {
     accounts: state.accounts,
     transactions: state.transactions,
@@ -271,7 +312,10 @@ export const BankProvider = ({ children }: { children: React.ReactNode }) => {
     withdraw,
     addInterest,
     getTransactionsByMonth,
+    getTransactionsByDateRange,
     getMonthlyStatement,
+    deleteAccount,
+    clearAllData,
   };
 
   return <BankContext.Provider value={value}>{children}</BankContext.Provider>;

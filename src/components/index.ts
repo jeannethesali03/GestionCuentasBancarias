@@ -7,3 +7,5 @@ export { WithdrawPanel } from './WithdrawPanel';
 export { InterestCalculator } from './InterestCalculator';
 export { TransactionHistory } from './TransactionHistory';
 export { MonthlyStatement } from './MonthlyStatement';
+export { DataManager } from './DataManager';
+export { FloatingButton } from './FloatingButton';

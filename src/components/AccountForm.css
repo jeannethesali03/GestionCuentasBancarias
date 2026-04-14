@@ -155,3 +155,34 @@
   color: #28a745;
   font-size: 1.1rem;
 }
+
+/* Justification Field Styles */
+.form-group.justification-field {
+  animation: slideInDown 0.3s ease-out;
+  background: #e7f3ff;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #007bff;
+}
+
+.justification-field label {
+  color: #004085;
+}
+
+.justification-field small {
+  color: #666;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
